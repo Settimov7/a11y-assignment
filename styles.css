@@ -37,7 +37,6 @@
 
 a {
   text-decoration: none;
-  outline: none;
 }
 
 p {
@@ -84,7 +83,6 @@ button {
   background: none;
   padding: 0;
   margin: 0;
-  outline: none;
 }
 
 button {
@@ -567,7 +565,6 @@ fieldset legend {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
-  outline: none;
 }
 
 .product-card__left {
@@ -838,11 +835,10 @@ fieldset legend {
 }
 
 .input-radio__input {
-  opacity: 0;
   position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 0;
+  inset: 0;
+  z-index: -1;
+  appearance: none;
 }
 
 .input-radio__visual {
