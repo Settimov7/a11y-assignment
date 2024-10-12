@@ -217,24 +217,33 @@
 									<img src="images/photo2.jpg" class="products-grid__item-picture" srcset="images/photo2_x2.jpg 2x" alt="">
 								</a>
 								<div class="products-grid__item-name"><a href="#">Product name</a></div>
-								<div class="colors-palette products-grid__item-colors-palette">
-									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #C88252;" aria-label="orange">
+								<ul class="colors-palette products-grid__item-colors-palette" aria-label="Available colors">
+									<li class="colors-palette__item">
+										<!-- 
+											Используя VO очень странно озвучивается dl dt dd, которые тут кажется идеально подходят,
+											поэтому заменил на ul li и задавал текст через aria-label на li, 
+											но VO начал добавлять "empty group", которое тут явно лишнее, поэтому остановился на текущей реализации
+										-->
+										<span class="v-h">Orange</span>
+										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #C88252;">
 										</span>
-									</div>
-									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #e04acc;" aria-label="pink">
+									</li>
+									<li class="colors-palette__item">
+										<span class="v-h">Pink</span>
+										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #e04acc;">
 										</span>
-									</div>
-									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #292fad;" aria-label="blue">
+									</li>
+									<li class="colors-palette__item">
+										<span class="v-h">Blue</span>
+										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #292fad;">
 										</span>
-									</div>
-									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #68da00;" aria-label="green">
+									</li>
+									<li class="colors-palette__item">
+										<span class="v-h">Green</span>
+										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #68da00;">
 										</span>
-									</div>
-								</div>
+									</li>
+								</ul>
 								<p class="products-grid__item-price">
 									EUR 40
 								</p>
@@ -244,20 +253,23 @@
 									<img src="images/photo3.jpg" class="products-grid__item-picture" srcset="images/photo3_x2.jpg 2x" alt="">
 								</a>
 								<div class="products-grid__item-name"><a href="#">Very long product name for testing purposes</a></div>
-								<div class="colors-palette products-grid__item-colors-palette">
-									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: red;" aria-label="red">
+								<ul class="colors-palette products-grid__item-colors-palette" aria-label="Available colors">
+									<li class="colors-palette__item">
+										<span class="v-h">Red</span>
+										<span aria-hidden="true" class="colors-palette__sample" style="background-color: red;">
 										</span>
-									</div>
-									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: green;" aria-label="green">
+									</li>
+									<li class="colors-palette__item">
+										<span class="v-h">Green</span>
+										<span aria-hidden="true" class="colors-palette__sample" style="background-color: green;">
 										</span>
-									</div>
-									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: blue;" aria-label="blue">
+									</li>
+									<li class="colors-palette__item">
+										<span class="v-h">Blue</span>
+										<span aria-hidden="true" class="colors-palette__sample" style="background-color: blue;">
 										</span>
-									</div>
-								</div>
+									</li>
+								</ul>
 								<p class="products-grid__item-price">
 									EUR 40
 								</p>
@@ -270,24 +282,28 @@
 									<img src="images/photo4.jpg" class="products-grid__item-picture" srcset="images/photo4_x2.jpg 2x">
 								</a>
 								<div class="products-grid__item-name"><a href="#">Product name</a></div>
-								<div class="colors-palette products-grid__item-colors-palette">
-									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #C88252;" aria-label="orange">
+								<ul class="colors-palette products-grid__item-colors-palette" aria-label="Available colors">
+									<li class="colors-palette__item">
+										<span class="v-h">Orange</span>
+										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #C88252;">
 										</span>
-									</div>
-									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #e04acc;" aria-label="pink">
+									</li>
+									<li class="colors-palette__item">
+										<span class="v-h">Pink</span>
+										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #e04acc;">
 										</span>
-									</div>
-									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #292fad;" aria-label="blue">
+									</li>
+									<li class="colors-palette__item">
+										<span class="v-h">Blue</span>
+										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #292fad;">
 										</span>
-									</div>
-									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #68da00;" aria-label="green">
+									</li>
+									<li class="colors-palette__item">
+										<span class="v-h">Green</span>
+										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #68da00;">
 										</span>
-									</div>
-								</div>
+									</li>
+								</ul>
 								<p class="products-grid__item-price">
 									EUR 40
 								</p>
