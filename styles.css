@@ -23,9 +23,9 @@
 }
 
 :root {
-  --text-color-primary: #717b90;
+  --text-color-primary: #6c758a;
   --text-color-light: #5e626b;
-  --link-color-primary: #b4bac4;
+  --link-color-primary: #72757c;
   --border-color-primary: #1a1f29;
   --border-color-light: #cccccc;
   --brand-blue: #171c8f;
@@ -324,7 +324,7 @@ fieldset legend {
 .breadcrumbs__current {
   display: inline-block;
   font-size: 12px;
-  color: #74767B;
+  color: #57585c;
 }
 
 .footer {
