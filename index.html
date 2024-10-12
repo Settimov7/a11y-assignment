@@ -224,6 +224,8 @@
 									
 									Хотел использовать aria-label на dd, но VO начал добавлять "empty description", что похоже на баг,
 									поэтому использую visually-hidden
+
+									NVDA начинает творить дичь, если используется aria-label
 								-->
 								<dl class="colors-palette products-grid__item-colors-palette">
 									<dt class="v-h">Available colors</dt>
@@ -263,6 +265,8 @@
 
 									При использовании aria-label на li VO добавляет "empty group", чего кажется не должно быть, 
 									поэтому использую visually-hidden
+
+									NVDA считает "blank", если используется aria-label
 								-->
 								<ul class="colors-palette products-grid__item-colors-palette" aria-label="Available colors">
 									<li class="colors-palette__item" aria-label="Red">
