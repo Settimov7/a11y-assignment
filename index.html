@@ -217,33 +217,37 @@
 									<img src="images/photo2.jpg" class="products-grid__item-picture" srcset="images/photo2_x2.jpg 2x" alt="">
 								</a>
 								<div class="products-grid__item-name"><a href="#">Product name</a></div>
-								<ul class="colors-palette products-grid__item-colors-palette" aria-label="Available colors">
-									<li class="colors-palette__item">
-										<!-- 
-											Используя VO очень странно озвучивается dl dt dd, которые тут кажется идеально подходят,
-											поэтому заменил на ul li и задавал текст через aria-label на li, 
-											но VO начал добавлять "empty group", которое тут явно лишнее, поэтому остановился на текущей реализации
-										-->
-										<span class="v-h">Orange</span>
+
+								<!-- 
+									По семантике нравится такой вариант и в html living standart есть похожий пример,
+								 	но смущают пустые name в dev tools
+									
+									Хотел использовать aria-label на dd, но VO начал добавлять "empty description", что похоже на баг,
+									поэтому использую visually-hidden
+								-->
+								<dl class="colors-palette products-grid__item-colors-palette">
+									<dt class="v-h">Available colors</dt>
+
+									<dd class="colors-palette__item" aria-label="Orange">
 										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #C88252;">
 										</span>
-									</li>
-									<li class="colors-palette__item">
+									</dd>
+									<dd class="colors-palette__item">
 										<span class="v-h">Pink</span>
 										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #e04acc;">
 										</span>
-									</li>
-									<li class="colors-palette__item">
+									</dd>
+									<dd class="colors-palette__item">
 										<span class="v-h">Blue</span>
 										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #292fad;">
 										</span>
-									</li>
-									<li class="colors-palette__item">
+									</dd>
+									<dd class="colors-palette__item">
 										<span class="v-h">Green</span>
 										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #68da00;">
 										</span>
-									</li>
-								</ul>
+									</dd>
+								</dl>
 								<p class="products-grid__item-price">
 									EUR 40
 								</p>
@@ -253,9 +257,15 @@
 									<img src="images/photo3.jpg" class="products-grid__item-picture" srcset="images/photo3_x2.jpg 2x" alt="">
 								</a>
 								<div class="products-grid__item-name"><a href="#">Very long product name for testing purposes</a></div>
+								
+								<!-- 
+									Второй вариант через обычный ul li
+
+									При использовании aria-label на li VO добавляет "empty group", чего кажется не должно быть, 
+									поэтому использую visually-hidden
+								-->
 								<ul class="colors-palette products-grid__item-colors-palette" aria-label="Available colors">
-									<li class="colors-palette__item">
-										<span class="v-h">Red</span>
+									<li class="colors-palette__item" aria-label="Red">
 										<span aria-hidden="true" class="colors-palette__sample" style="background-color: red;">
 										</span>
 									</li>
