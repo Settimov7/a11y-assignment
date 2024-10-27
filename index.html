@@ -9,6 +9,17 @@
 	</head>
 	<body>
 		<div class="main-grid">
+			<!-- Вопросы:
+			 	1) А это нормально делать скип линк в заголовок с tab-index=-1? 
+					А если его делать на секцию, то VO начинает зачитывать вообще все содержимое, а без tabindex
+					не видно где фокус после нажатия на скип линк 
+				2) Как корректно делать кнопку закрытия модалки? 
+					Ее же нужно помещать в разметке после всего контента, а отображать визуально в самом верху модалки.
+					При таком решении нет проблем с порядком фокуса?
+				3) Нужно ли давать форме подпись, если она уже внутри секции с заголовком?
+				
+			-->
+			<a class="skip-link" href="#productName">Skip to content</a>
 			<header class="header">
 				<div class="container header__container">
 					<nav class="header__menu-main" aria-label="Primary">
@@ -27,7 +38,7 @@
 							</li>
 
 							<li>
-								<a class="header__logo" href="/" aria-label="home page">
+								<a class="header__logo" href="/" aria-label="Susparsa - home page">
 									<img class="header__logo-picture" src="images/logo.svg" alt="">
 								</a>
 							</li>
@@ -57,59 +68,59 @@
 								<a class="breadcrumbs__link" href="#">Women</a>
 							</li>
 							<li class="breadcrumbs__item breadcrumbs__item_active">
-								<span class="breadcrumbs__current">White unisex t-shirt</span>
+								<a class="breadcrumbs__current" aria-current="page">White unisex t-shirt</a>
 							</li>														
 						</ul>
 					</nav>
 
-					<div class="product-card" id="skipLinkTarget">
+					<div class="product-card">
 						<div class="product-card__right">
-							<h1 class="product-card__title" id="productName">White unisex t-shirt</h1>
+							<h1 class="product-card__title" id="productName" tabindex="-1">White unisex t-shirt</h1>
 							<p class="product-card__price">EUR 40</p>
 							<p class="product-card__infolabel">Tax included</p>
 							<form class="product-card__form" action="#">
-								<div class="product-card__parameter">
-									<label class="product-card__label" for="size-select">Size</label>
-									<select class="product-size" id="size-select">
+								<fieldset class="product-card__parameter">
+									<legend id="size-legend" class="product-card__label">Size</legend>
+									<select class="product-size" aria-labelledby="size-legend">
 										<option value="xs">XS</option>
 										<option value="s">S</option>
 										<option value="m">M</option>
 										<option value="l">L</option>
 										<option value="xl">XL</option>
 									</select>
-									<a class="size-guide-link modal-target" href="#sizeGuide">Size Guide</a>
-									<div class="modal">
-										<div class="modal-backdrop">
-											<div class="modal-body size-guide">
-												<h3 class="heading-2">Size guide</h3>
-												<p>Some description about the sizes</p>
-												<table class="size-guide__table">
-													<tr>
-														<td>EU</td>
-														<td>US</td>
-													</tr>
-													<tr>
-														<td>36</td>
-														<td>8</td>
-													</tr>
-													<tr>
-														<td>38</td>
-														<td>9</td>
-													</tr>
-													<tr>
-														<td>40</td>
-														<td>10</td>
-													</tr>
-													<tr>
-														<td>42</td>
-														<td>11</td>
-													</tr>
-												</table>
-											</div>
-										</div>
+									<button type="button" class="size-guide-link modal-target" onclick="window.sizeDialog.showModal()">Size Guide</button>
 
-									</div>
-								</div>
+									<dialog id="sizeDialog" class="modal" aria-labelledby="modal-heading">
+										<h2 id="modal-heading" class="heading-2" tabindex="-1">Size guide</h2>
+										<p>Some description about the sizes</p>
+										<table class="size-guide__table">
+											<tr>
+												<td>EU</td>
+												<td>US</td>
+											</tr>
+											<tr>
+												<td>36</td>
+												<td>8</td>
+											</tr>
+											<tr>
+												<td>38</td>
+												<td>9</td>
+											</tr>
+											<tr>
+												<td>40</td>
+												<td>10</td>
+											</tr>
+											<tr>
+												<td>42</td>
+												<td>11</td>
+											</tr>
+										</table>
+
+										<button type="button" class="modal-close-button" aria-label="Close" onclick="window.sizeDialog.close()">
+											<svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon flat-color"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg>
+										</button>
+									</dialog>
+								</fieldset>
 								<fieldset class="product-card__parameter">
 									<legend class="product-card__label">Color<span aria-hidden="true"> - <span id="productColorValue">White</span></span></legend>
 									<ul class="input-group">
@@ -163,14 +174,14 @@
 										</li>										
 									</ul>										
 								</fieldset>
-								<div class="product-card__parameter product-card__parameter_last">
-									<label class="product-card__label" for="productQuantity">Quantity</label>
+								<fieldset class="product-card__parameter product-card__parameter_last">
+									<legend id="quantity-legend" class="product-card__label">Quantity</legend>
 									<div class="input-quantity">
 										<button type="button" class="input-quantity__btn" data-action="decrease" aria-label="decrease by 1">&minus;</button>
-										<input type="number" class="input-quantity__field" id="productQuantity" name="product_quantity" value="1">
+										<input type="number" class="input-quantity__field" name="product_quantity" value="1" aria-labelledby="quantity-legend">
 										<button type="button" class="input-quantity__btn" data-action="increase" aria-label="increase by 1">&plus;</button>
 									</div>
-								</div>
+								</fieldset>
 								<button type="button" class="btn btn_secondary btn_hollow">Add to cart</button>
 								<button type="button" class="btn btn_primary">Buy it now</button>
 							</form>
@@ -215,45 +226,37 @@
 
 					<section class="section products-similar" aria-labelledby="similar-header">
 						<h2 id="similar-header" class="heading-2 products-similar__heading-2">You may also like</h3>
+
+						<a class="skip-link" href="#about-header">Skip similar products</a>
 						<div class="products-grid">
 							<article class="products-grid__item" aria-labelledby="product-1-header">
 								<a href="#" tabindex="-1" class="products-grid__item-photo" aria-hidden="true">
 									<img src="images/photo2.jpg" class="products-grid__item-picture" srcset="images/photo2_x2.jpg 2x" alt="">
 								</a>
 								<h3 id="product-1-header" class="products-grid__item-name"><a href="#">Product name</a></h3>
-
-								<!-- 
-									По семантике нравится такой вариант и в html living standart есть похожий пример,
-								 	но смущают пустые name в dev tools
-									
-									Хотел использовать aria-label на dd, но VO начал добавлять "empty description", что похоже на баг,
-									поэтому использую visually-hidden
-
-									NVDA начинает творить дичь, если используется aria-label
-								-->
-								<dl class="colors-palette products-grid__item-colors-palette">
-									<dt class="v-h">Available colors</dt>
-
-									<dd class="colors-palette__item" aria-label="Orange">
+								
+								<ul class="colors-palette products-grid__item-colors-palette" aria-label="Available colors">
+									<li class="colors-palette__item">
+										<span class="v-h">Orange</span>
 										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #C88252;">
 										</span>
-									</dd>
-									<dd class="colors-palette__item">
+									</li>
+									<li class="colors-palette__item">
 										<span class="v-h">Pink</span>
 										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #e04acc;">
 										</span>
-									</dd>
-									<dd class="colors-palette__item">
+									</li>
+									<li class="colors-palette__item">
 										<span class="v-h">Blue</span>
 										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #292fad;">
 										</span>
-									</dd>
-									<dd class="colors-palette__item">
+									</li>
+									<li class="colors-palette__item">
 										<span class="v-h">Green</span>
 										<span aria-hidden="true" class="colors-palette__sample" style="background-color: #68da00;">
 										</span>
-									</dd>
-								</dl>
+									</li>
+								</ul>
 								<p class="products-grid__item-price">
 									EUR 40
 								</p>
@@ -265,16 +268,9 @@
 								</a>
 								<h3 id="product-2-header" class="products-grid__item-name"><a href="#">Very long product name for testing purposes</a></h3>
 								
-								<!-- 
-									Второй вариант через обычный ul li
-
-									При использовании aria-label на li VO добавляет "empty group", чего кажется не должно быть, 
-									поэтому использую visually-hidden
-
-									NVDA считает "blank", если используется aria-label
-								-->
 								<ul class="colors-palette products-grid__item-colors-palette" aria-label="Available colors">
-									<li class="colors-palette__item" aria-label="Red">
+									<li class="colors-palette__item">
+										<span class="v-h">Red</span>
 										<span aria-hidden="true" class="colors-palette__sample" style="background-color: red;">
 										</span>
 									</li>
@@ -337,7 +333,7 @@
 				<div class="container footer__container">
 					<div class="footer__columns">
 						<section class="footer__col" aria-labelledby="about-header">
-							<h2 id="about-header" class="footer__heading">About</h4>
+							<h2 id="about-header" class="footer__heading" tabindex="-1">About</h4>
 							<div class="footer__address">
 								<p>Susparsa Store</p>
 								<p>Geneva, Switzerland</p>

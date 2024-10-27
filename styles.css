@@ -712,27 +712,7 @@ fieldset legend {
   text-decoration: underline;
 }
 
-.modal {
-  display: none;
-}
-
-.modal-backdrop {
-  position: fixed;
-  z-index: 1000000;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-body {
-  position: absolute;
+.modal[open] {
   box-sizing: border-box;
   background-color: #fff;
   box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
@@ -740,11 +720,13 @@ fieldset legend {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  border-width: 0px;
   border-radius: 2px;
+  color: inherit;
 }
 
-.show-modal {
-  display: block;
+.modal::backdrop {
+  background-color: rgba(0,0,0,.3);
 }
 
 .size-guide__table tr:first-child td {
@@ -755,8 +737,6 @@ fieldset legend {
   border: 1px solid;
   padding: 10px;
 }
-
-
 
 .product-card__infolabel {
   font-size: 16px;
@@ -943,6 +923,10 @@ fieldset legend {
   margin-bottom: 50px;
 }
 
+.products-similar {
+  position: relative;
+}
+
 .products-similar__heading-2 {
   text-align: center;
   margin-bottom: 63px;
@@ -1084,4 +1068,28 @@ fieldset legend {
   margin-left: 4px;
   margin-right: 4px;
   margin-bottom: 8px;
+}
+
+.skip-link {
+  display: block;
+  padding: 8px;
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.skip-link:focus {
+  transform: translateY(20%);
+  opacity: 1;
+}
+
+.modal-close-button {
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
 }
