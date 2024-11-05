@@ -9,20 +9,8 @@
 	</head>
 	<body>
 		<div class="main-grid">
-			<!-- Вопросы:
-			 	1) А это нормально делать скип линк в заголовок с tab-index=-1? 
-					А если его делать на секцию, то VO начинает зачитывать вообще все содержимое, а без tabindex
-					не видно где фокус после нажатия на скип линк 
-				2) Как корректно делать кнопку закрытия модалки? 
-					Ее же нужно помещать в разметке после всего контента, а отображать визуально в самом верху модалки.
-					При таком решении нет проблем с порядком фокуса?
-				3) Нужно ли давать форме подпись, если она уже внутри секции с заголовком?
-				4) Что делать с характеристисками товаров? Добавлять скрытые подписи? Или есть какой иной подход?
-				5) Очень хочется завернуть картинки в figure + figcaption. Потестировать
-
-			-->
-			<a class="skip-link" href="#productName">Skip to content</a>
 			<header class="header">
+				<a class="skip-link" href="#productName">Skip to content</a>
 				<div class="container header__container">
 					<nav class="header__menu-main" aria-label="Primary">
 						<ul class="menu">
@@ -127,52 +115,52 @@
 									<legend class="product-card__label">Color<span aria-hidden="true"> - <span id="productColorValue">White</span></span></legend>
 									<ul class="input-group">
 										<li class="input-group__item">
-											<label class="input-radio">
+											<div class="input-radio">
 												<input class="input-radio__input" type="radio" name="product_color" data-name-display="White" aria-label="White" value="white" checked>
 												<span class="input-radio__visual input-radio-color">
 													<span class="input-radio-color__sample" style="background-color: #ffffff; border: 1px #cccccc solid;"></span>
 												</span>
-											</label>
+											</div>
 										</li>
 										<li class="input-group__item">
-											<label class="input-radio">
+											<div class="input-radio">
 												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Black" aria-label="Black" value="black">
 												<span class="input-radio__visual input-radio-color">
 													<span class="input-radio-color__sample" style="background-color: #1a1f29;"></span>
 												</span>
-											</label>
+											</div>
 										</li>
 										<li class="input-group__item">
-											<label class="input-radio">
+											<div class="input-radio">
 												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Gray" aria-label="Gray" value="gray">
 												<span class="input-radio__visual input-radio-color">
 													<span class="input-radio-color__sample" style="background-color: #aeaeb0;"></span>
 												</span>
-											</label>
+											</div>
 										</li>
 										<li class="input-group__item">
-											<label class="input-radio">
+											<div class="input-radio">
 												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Purple latte" aria-label="Purple latte" value="purple">
 												<span class="input-radio__visual input-radio-color">
 													<span class="input-radio-color__sample" style="background-color: #ba9be5;"></span>
 												</span>
-											</label>
+											</div>
 										</li>
 										<li class="input-group__item">
-											<label class="input-radio">
+											<div class="input-radio">
 												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Color 1" aria-label="Color 1" value="color1" disabled>
 												<span class="input-radio__visual input-radio-color">
 													<span class="input-radio-color__sample" style="background-color: #e9a0a7;"></span>
 												</span>
-											</label>
+											</div>
 										</li>
 										<li class="input-group__item">
-											<label class="input-radio">
+											<div class="input-radio">
 												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Color 2" aria-label="Color 2" value="color2" disabled>
 												<span class="input-radio__visual input-radio-color">
 													<span class="input-radio-color__sample" style="background-color: #f8cab1;"></span>
 												</span>
-											</label>												
+											</div>												
 										</li>										
 									</ul>										
 								</fieldset>
@@ -196,15 +184,15 @@
 							<div class="product-card__photo-big">
 								<img class="product-card__photo-big-picture" src="images/photo1.jpg" srcset="images/photo1_x2.jpg 2x" alt="">
 							</div>
-							<div class="accordion" aria-label="Product info">
+							<section class="accordion" aria-label="Product info">
 								<div class="accordion__item">
-									<h2 id="productInfo1">
+									<h2>
 										<button type="button" aria-controls="productInfo1Body" aria-expanded="false" class="accordion__item-title" >Sizing & Fit</button>
 									</h2>
 									<div class="accordion__item-body" id="productInfo1Body">Olga is 175cm, she is wearing a size S.</div>
 								</div>
 								<div class="accordion__item">
-									<h2 id="productInfo1">
+									<h2>
 										<button type="button" aria-controls="productInfo2Body" aria-expanded="false" class="accordion__item-title">Composition & Care</button>
 									</h2>
 									<div class="accordion__item-body" id="productInfo2Body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
@@ -215,7 +203,7 @@
 									</h2>
 									<div class="accordion__item-body" id="productInfo3Body">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</div>
 								</div>
-							</div>
+							</section>
 						</div>
 					</div>
 
@@ -227,9 +215,8 @@
 					</section>
 
 					<section class="section products-similar" aria-labelledby="similar-header">
-						<h2 id="similar-header" class="heading-2 products-similar__heading-2">You may also like</h3>
+						<h2 id="similar-header" class="heading-2 products-similar__heading-2">You may also like</h2>
 
-						<a class="skip-link" href="#about-header">Skip similar products</a>
 						<div class="products-grid">
 							<article class="products-grid__item" aria-labelledby="product-1-header">
 								<a href="#" tabindex="-1" class="products-grid__item-photo" aria-hidden="true">
@@ -297,7 +284,7 @@
 									<li class="product-tags__item">Sold out</li>
 								</ul>
 								<a href="#" tabindex="-1" class="products-grid__item-photo" aria-hidden="true">
-									<img src="images/photo4.jpg" class="products-grid__item-picture" srcset="images/photo4_x2.jpg 2x">
+									<img src="images/photo4.jpg" class="products-grid__item-picture" srcset="images/photo4_x2.jpg 2x" alt="">
 								</a>
 								<h3 id="product-3-header" class="products-grid__item-name"><a href="#">Product name 2</a></h3>
 								<ul class="colors-palette products-grid__item-colors-palette" aria-label="Available colors">
@@ -334,9 +321,9 @@
 			<footer class="footer">
 				<div class="container footer__container">
 					<div class="footer__columns">
-						<section class="footer__col" aria-labelledby="about-header">
-							<h2 id="about-header" class="footer__heading" tabindex="-1">About</h4>
-							<div class="footer__address">
+						<div class="footer__col">
+							<h2 id="about-header" class="footer__heading" tabindex="-1">About</h2>
+							<address class="footer__address">
 								<p>Susparsa Store</p>
 								<p>Geneva, Switzerland</p>
 								<ul class="social" aria-label="Our social accounts">
@@ -355,55 +342,56 @@
 										</a>
 									</li>
 								</ul>
-							</div>
-						</section>
-						<section class="footer__col" aria-labelledby="company-header">
-							<h2 id="company-header" class="footer__heading">Company</h4>
-							<nav aria-label="Footer primary">
-								<ul class="footer__list">
-									<li class="footer__list-item">
-										<a class="footer__list-link" href="#">Woman</a>
-									</li>
-									<li class="footer__list-item">
-										<a class="footer__list-link" href="#">Men</a>
-									</li>
-									<li class="footer__list-item">							
-										<a class="footer__list-link" href="#">Kids</a>
-									</li>
-									<li class="footer__list-item">							
-										<a class="footer__list-link" href="#">About Us</a>
-									</li>
-									<li class="footer__list-item">							
-										<a class="footer__list-link" href="#">Our Materials</a>
-									</li>
-								</ul>								
-							</nav>
-						</section>
-						<section class="footer__col" aria-labelledby="links-header">
-							<h2 id="links-header" class="footer__heading">Useful links</h4>
-							<div>
-								<ul class="footer__list">
-									<li class="footer__list-item">
-										<a class="footer__list-link" href="#">Privacy Policy</a>
-									</li>
-									<li class="footer__list-item">
-										<a class="footer__list-link" href="#">Shipping Policy</a>
-									</li>
-									<li class="footer__list-item">							
-										<a class="footer__list-link" href="#">Return & Refund Policy</a>
-									</li>
-									<li class="footer__list-item">							
-										<a class="footer__list-link" href="#">Terms of Service</a>
-									</li>
-									<li class="footer__list-item">							
-										<a class="footer__list-link" href="#">Contact Us</a>
-									</li>
-								</ul>									
-							</div>
-						</section>
-						<section class="footer__col" aria-labelledby="subscribe-header">
-							<h2 id="subscribe-header" class="footer__heading">Subscribe</h4>
-							<form class="form" action="#">
+							</address>
+						</div>
+
+						<nav class="footer__col" aria-labelledby="company-header">
+							<h2 id="company-header" class="footer__heading">Company</h2>
+
+							<ul class="footer__list">
+								<li class="footer__list-item">
+									<a class="footer__list-link" href="#">Woman</a>
+								</li>
+								<li class="footer__list-item">
+									<a class="footer__list-link" href="#">Men</a>
+								</li>
+								<li class="footer__list-item">							
+									<a class="footer__list-link" href="#">Kids</a>
+								</li>
+								<li class="footer__list-item">							
+									<a class="footer__list-link" href="#">About Us</a>
+								</li>
+								<li class="footer__list-item">							
+									<a class="footer__list-link" href="#">Our Materials</a>
+								</li>
+							</ul>								
+						</nav>
+
+						<nav class="footer__col" aria-labelledby="links-header">
+							<h2 id="links-header" class="footer__heading">Useful links</h2>
+
+							<ul class="footer__list">
+								<li class="footer__list-item">
+									<a class="footer__list-link" href="#">Privacy Policy</a>
+								</li>
+								<li class="footer__list-item">
+									<a class="footer__list-link" href="#">Shipping Policy</a>
+								</li>
+								<li class="footer__list-item">							
+									<a class="footer__list-link" href="#">Return & Refund Policy</a>
+								</li>
+								<li class="footer__list-item">							
+									<a class="footer__list-link" href="#">Terms of Service</a>
+								</li>
+								<li class="footer__list-item">							
+									<a class="footer__list-link" href="#">Contact Us</a>
+								</li>
+							</ul>									
+						</nav>
+
+						<div class="footer__col">
+							<form class="form" action="#" aria-labelledby="subscribe-header">
+								<h2 id="subscribe-header" class="footer__heading">Subscribe</h2>
 								<div class="form__input-group">
 								<input class="input" type="email" name="email" id="email" placeholder="Email">
 								<button type="submit" class="btn btn_primary">Subscribe</button>
@@ -413,7 +401,7 @@
 								</label>
 
 							</form>
-						</section>
+						</div>
 					</div>
 					<small class="footer__copyright">© Susparsa 2021</small>
 				</div>
